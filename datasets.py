@@ -25,6 +25,7 @@ def load_ucr(dataset='CBF'):
     assert(y.min() == 0)  # assert labels are integers and start from 0
     # preprocess data (standardization)
     X_scaled = TimeSeriesScalerMeanVariance().fit_transform(X)
+    print('X SIZE: ', X_scaled.shape)
     return X_scaled, y
 
 
