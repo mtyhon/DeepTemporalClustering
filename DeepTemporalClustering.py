@@ -469,7 +469,7 @@ if __name__ == "__main__":
     parser.add_argument('--heatmap', default=False, type=bool, help='train heatmap-generating network')
     parser.add_argument('--pretrain_epochs', default=10, type=int)
     parser.add_argument('--epochs', default=100, type=int)
-    parser.add_argument('--learning_rate', default=0.001, type=int)
+    parser.add_argument('--learning_rate', default=0.001, type=float)
     parser.add_argument('--eval_epochs', default=1, type=int)
     parser.add_argument('--save_epochs', default=10, type=int)
     parser.add_argument('--batch_size', default=64, type=int)
