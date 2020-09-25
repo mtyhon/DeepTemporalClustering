@@ -17,6 +17,7 @@ from keras.layers import Dense, Reshape, UpSampling2D, Conv2DTranspose, GlobalAv
 from keras.losses import kullback_leibler_divergence
 from keras.optimizers import Adam
 import keras.backend as K
+import keras
 
 # scikit-learn
 from sklearn.cluster import AgglomerativeClustering, KMeans
