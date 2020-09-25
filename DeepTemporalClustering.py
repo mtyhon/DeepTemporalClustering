@@ -15,6 +15,7 @@ from time import time
 from keras.models import Model
 from keras.layers import Dense, Reshape, UpSampling2D, Conv2DTranspose, GlobalAveragePooling1D, Softmax
 from keras.losses import kullback_leibler_divergence
+from keras.optimizers import Adam
 import keras.backend as K
 
 # scikit-learn
@@ -468,6 +469,7 @@ if __name__ == "__main__":
     parser.add_argument('--heatmap', default=False, type=bool, help='train heatmap-generating network')
     parser.add_argument('--pretrain_epochs', default=10, type=int)
     parser.add_argument('--epochs', default=100, type=int)
+    parser.add_argument('--learning_rate', default=0.001, type=int)
     parser.add_argument('--eval_epochs', default=1, type=int)
     parser.add_argument('--save_epochs', default=10, type=int)
     parser.add_argument('--batch_size', default=64, type=int)
@@ -509,7 +511,7 @@ if __name__ == "__main__":
               heatmap=args.heatmap)
 
     # Initialize model
-    optimizer = 'adam'
+    optimizer = keras.optimizers.Adam(learning_rate=args.learning_rate)
     dtc.initialize()
     dtc.model.summary()
     dtc.compile(gamma=args.gamma, optimizer=optimizer, initial_heatmap_loss_weight=args.initial_heatmap_loss_weight,
