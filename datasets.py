@@ -26,6 +26,7 @@ def load_ucr(dataset='CBF'):
     # preprocess data (standardization)
     X_scaled = TimeSeriesScalerMeanVariance().fit_transform(X)
     print('X SIZE: ', X_scaled.shape)
+    print('Y LABELS: ', np.unique(y))
     return X_scaled, y
 
 
